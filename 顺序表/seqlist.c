@@ -9,11 +9,17 @@ void SeqListInit(SL* ps)
 	ps->a = (SLDATATYPE*)malloc(sizeof(SLDATATYPE) * 4);
 	if (ps->a == NULL)
 	{
-		printf("�����ڴ�ʧ��\n");
+		printf("ÉêÇëÄÚ´æÊ§°Ü\n");
 		exit(-1);
 	}
 	ps->size = 0; 
 	ps->capacity = 4;
+}
+void SeqListDestory(SL* ps)
+{
+	free(ps->a);
+	ps->a=NULL; 
+	ps->capacity=ps->size=0;
 }
 
 void SeqListPrint(SL* ps)
@@ -34,13 +40,13 @@ void SeqListCheckCapacity(SL* ps)
 		ps->a = (SLDATATYPE*)realloc(ps->a, sizeof(SLDATATYPE) * ps->capacity);
 		if (ps->a == NULL)
 		{
-			printf("����ʧ��\n");
+			printf("ÔöÈÝÊ§°Ü\n");
 			exit(-1);
 		}
 	}
 }
 
-//β��βɾ  ͷ��ͷɾ
+//Î²²åÎ²É¾  Í·²åÍ·É¾
 void SeqListPushBack(SL* ps, SLDATATYPE x)
 {
 	assert(ps);
@@ -79,10 +85,11 @@ void SeqListPopFront(SL* ps)
 }
 
 
-//����λ�ò���ɾ��
+//ÈÎÒâÎ»ÖÃ²åÈëÉ¾³ý
 void SeqListInsert(SL* ps, int pos, SLDATATYPE x)
 {
 	assert(ps);
+	assert(pos<ps->size&&pos>0);
 	SeqListCheckCapacity(ps);
 	int end = ps->size - 1;
 	while (end >= pos - 1)
@@ -96,6 +103,7 @@ void SeqListInsert(SL* ps, int pos, SLDATATYPE x)
 void SeqListErase(SL* ps, int pos)
 {
 	assert(ps);
+	assert(pos<ps->size&&pos>0);
 	int begin = pos;
 	while (begin <= ps->size)
 	{
