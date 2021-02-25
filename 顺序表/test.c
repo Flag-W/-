@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1 
 #include"seqlist.h"
 
-//²âÊÔÍ·Î²²åÈëÉ¾³ı
+//Ë›Ã¢Ä˜Ã”ÃË‡ÃË›Ë›ÄºÄŒÃ«Ã‰Å¾Å‚Ã½
 void TestSeqList1()
 {
 	SeqList s;
@@ -24,6 +24,7 @@ void TestSeqList1()
 	SeqListPrint(&s);
 	SeqListErase(&s,2);
 	SeqListPrint(&s);
+	SeqListDestory(&s);
 }
 
 int main()
