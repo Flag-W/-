@@ -3,8 +3,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
-//顺序表，有效数据在数组中必须是连续的
-//动态顺序表设计（大小可变）
+//椤哄簭琛紝鏈夋晥鏁版嵁鍦ㄦ暟缁勪腑蹇呴』鏄繛缁殑
+//鍔ㄦ�侀『搴忚〃璁捐锛堝ぇ灏忓彲鍙橈級
 typedef  int SLDATATYPE;
 
 typedef struct SeqList
@@ -15,18 +15,19 @@ typedef struct SeqList
 }SL, SeqList;
 
 void SeqListInit(SL* ps);
+void SeqListDestory(SL* ps);
 
 void SeqListPrint(SL* ps);
 void SeqListCheckCapacity(SL* ps);
 
-//尾插尾删  头插头删
+//灏炬彃灏惧垹  澶存彃澶村垹
 void SeqListPushBack(SL* ps, SLDATATYPE x);
 void SeqListPophBack(SL* ps);
 void SeqListPushFront(SL* ps, SLDATATYPE x);
 void SeqListPopFront(SL* ps);
 
 
-//任意位置插入删除
+//浠绘剰浣嶇疆鎻掑叆鍒犻櫎
 void SeqListInsert(SL* ps, int pos, SLDATATYPE x);
 void SeqListErase(SL* ps, int pos);
 
